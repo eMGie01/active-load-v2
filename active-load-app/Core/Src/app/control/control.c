@@ -15,18 +15,26 @@ static pi_t pi = {0};
 
 //
 
-int32_t s_cntrl_calc_setpoint(int32_t v_code)
+int32_t s_cntrl_calc_target(int32_t v_code)
 {
     switch(app_data_get_mode())
     {
         case APP_DATA_MODE_CC:
+        {
             return app_data_get_setpoint_code();
+        }
         case APP_DATA_MODE_CP:
+        {
             return app_data_get_setpoint_code() / v_code;
+        }
         case APP_DATA_MODE_CR:
+        {
             return v_code / app_data_get_setpoint_code();
+        }
         default:
+        {
             return 0;
+        }
     }
 }
 
@@ -42,7 +50,7 @@ void cntrl_isr()
 
     if (s_enabled)
     {
-        // int32_t setpoint_code = s_cntrl_calc_setpoint(voltage_code); // in bit value
+        // int32_t setpoint_code = s_cntrl_calc_target(voltage_code); // in bit value
         // int32_t output_code = pi_update(&pi, setpoint_code, current_code); // only CC for now
         // drv_dac_set(output_code); // in bit value
     }
@@ -53,11 +61,11 @@ void cntrl_isr()
 void cntrl_init(void)
 {
     s_enabled = false;
-    int32_t kp = app_data_get_m_kp();
-    int32_t ki = app_data_get_m_ki();
-    pi_init(&pi, );
+    // int32_t kp = app_data_get_m_kp();
+    // int32_t ki = app_data_get_m_ki();
+    // pi_init(&pi, );
 
-    drv_dac_set(0);
+    // drv_dac_set(0);
 }
 
 //
@@ -65,7 +73,7 @@ void cntrl_init(void)
 void cntrl_deinit(void)
 {
     cntrl_dis();
-    pi_deinit();
+    // pi_deinit();
 }
 
 //
@@ -73,15 +81,15 @@ void cntrl_deinit(void)
 void cntrl_update(void)
 {
     cntrl_dis();
-    pi_deinit();
-    pi_init();
+    // pi_deinit();
+    // pi_init();
 }
 
 //
 
 void cntrl_en(void)
 {
-    pi_reset();
+    // pi_reset();
     s_enabled = true;
 }
 
@@ -90,7 +98,7 @@ void cntrl_en(void)
 void cntrl_dis(void)
 {
     s_enabled = false;
-    drv_dac_set(0);
+    // drv_dac_set(0);
 }
 
 //
@@ -98,7 +106,7 @@ void cntrl_dis(void)
 void cntrl_rst(void)
 {
     cntrl_dis();
-    pi_reset();
+    // pi_reset();
 }
 
 //
