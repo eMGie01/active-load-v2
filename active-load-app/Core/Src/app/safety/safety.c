@@ -52,7 +52,7 @@ void safety_prcs(void)
         s_status = SAFETY_FAULT;
     }
 
-    if ((HAL_GetTick() - app_data_get_timestamp()) > SAFETY_MEAS_TIMEOUT)
+    if ((HAL_GetTick() - app_data_get_timestamp()) > SAFETY_MEAS_TIMEOUT_MS)
     {
         s_status = SAFETY_FAULT;
     }
