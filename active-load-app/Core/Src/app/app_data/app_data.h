@@ -24,7 +24,9 @@ void app_data_set_setpoint(int32_t val);
 void app_data_set_mode(enum app_data_mode mode);
 
 // -- getters ---
+int32_t app_data_get_voltage_code(void);
 int32_t app_data_get_voltage(void);
+int32_t app_data_get_current_code(void);
 int32_t app_data_get_current(void);
 int32_t app_data_get_voltage_max(void);
 int32_t app_data_get_voltage_min(void);
