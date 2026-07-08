@@ -72,7 +72,7 @@ fast_cmnd(const mcp3561_t *h, uint8_t fast_code, uint32_t timeout_ms)
 
 
 mcp3561_err_t
-mcp3561_DeviceReset(mcp3561_t *h, uint32_t timeout_ms)
+mcp3561_device_reset(mcp3561_t *h, uint32_t timeout_ms)
 {
     if ( fast_cmnd(h, FAST_DEV_RESET, timeout_ms) )
     {
@@ -83,7 +83,7 @@ mcp3561_DeviceReset(mcp3561_t *h, uint32_t timeout_ms)
 
 
 mcp3561_err_t
-mcp3561_WriteConfig(mcp3561_t *h, uint32_t timeout_ms)
+mcp3561_write_cfg(mcp3561_t *h, uint32_t timeout_ms)
 {
     if ( !h || !h->init || !h->hspi || !h->cs_port )
     {
@@ -166,7 +166,7 @@ mcp3561_WriteConfig(mcp3561_t *h, uint32_t timeout_ms)
 
 
 mcp3561_err_t
-mcp3561_ReadConfig(mcp3561_t *h, mcp3561_cfg_t *cfg, uint32_t timeout_ms)
+mcp3561_read_cfg(mcp3561_t *h, mcp3561_cfg_t *cfg, uint32_t timeout_ms)
 {
     if (!h || !cfg || !h->init || !h->hspi || !h->cs_port) {
         return MCP_INVALID_ARG_ERR;
@@ -214,7 +214,7 @@ mcp3561_ReadConfig(mcp3561_t *h, mcp3561_cfg_t *cfg, uint32_t timeout_ms)
 
 
 mcp3561_err_t
-mcp3561_ReadAdcRaw(mcp3561_t *h, int32_t *raw, uint32_t timeout_ms)
+mcp3561_read_adc(mcp3561_t *h, int32_t *raw, uint32_t timeout_ms)
 {
     if (!h || !raw || !h->init || !h->hspi || !h->cs_port) {
         return MCP_INVALID_ARG_ERR;

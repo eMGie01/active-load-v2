@@ -130,7 +130,7 @@ enum mcp3561_cs_sel_t
     CS_SEL_15_UA                = 3,
 };
 
-#define CLK_SEL_DEF CLK_SEL_EXT_DIG_CLK_DEF
+#define CLK_SEL_DEF CLK_SEL_EXT_DIG_CLK
 enum mcp3561_clk_sel
 {
     CLK_SEL_EXT_DIG_CLK         = 0,

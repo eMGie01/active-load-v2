@@ -13,7 +13,7 @@
 
 
 mcp3561_err_t 
-mcp3561t_init(mcp3561_t *h, SPI_HandleTypeDef * hspi, GPIO_TypeDef * port, uint16_t pin)
+mcp3561_init(mcp3561_t *h, SPI_HandleTypeDef * hspi, GPIO_TypeDef * port, uint16_t pin)
 {
     if ( !h || !hspi || !port )
     {
@@ -37,7 +37,7 @@ mcp3561t_init(mcp3561_t *h, SPI_HandleTypeDef * hspi, GPIO_TypeDef * port, uint1
 
 
 mcp3561_err_t
-mcp3561t_save_cfg(mcp3561_t *h, mcp3561_cfg_t *cfg)
+mcp3561_save_cfg(mcp3561_t *h, mcp3561_cfg_t *cfg)
 {
     if ( !h || !cfg || !h->hspi || !h->cs_port || cfg->dev_id > 3u )
     {
@@ -86,7 +86,7 @@ mcp3561t_save_cfg(mcp3561_t *h, mcp3561_cfg_t *cfg)
 
 
 mcp3561_err_t
-mcp3561t_deinit(mcp3561_t *h)
+mcp3561_deinit(mcp3561_t *h)
 {
     if ( !h )
     {

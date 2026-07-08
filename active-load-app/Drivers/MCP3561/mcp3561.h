@@ -54,14 +54,14 @@ typedef struct
     bool                init;
 } mcp3561_t;
 
-mcp3561_err_t mcp3561t_init(mcp3561_t *h, SPI_HandleTypeDef *hspi, GPIO_TypeDef *port, uint16_t pin);
-mcp3561_err_t mcp3561t_save_cfg(mcp3561_t *h, mcp3561_cfg_t *cfg);
-mcp3561_err_t mcp3561t_deinit(mcp3561_t *h);
+mcp3561_err_t mcp3561_init(mcp3561_t *h, SPI_HandleTypeDef *hspi, GPIO_TypeDef *port, uint16_t pin);
+mcp3561_err_t mcp3561_save_cfg(mcp3561_t *h, mcp3561_cfg_t *cfg);
+mcp3561_err_t mcp3561_deinit(mcp3561_t *h);
 
-mcp3561_err_t mcp3561t_reset(mcp3561_t *h, uint32_t timeout_ms);
-mcp3561_err_t mcp3561t_write_cfg(mcp3561_t *h, uint32_t timeout_ms);
-mcp3561_err_t mcp3561t_read_cfg(mcp3561_t *h, mcp3561_cfg_t *cfg, uint32_t timeout_ms);
-mcp3561_err_t mcp3561t_read_adc(mcp3561_t *h, int32_t *raw, uint32_t timeout_ms);
+mcp3561_err_t mcp3561_reset(mcp3561_t *h, uint32_t timeout_ms);
+mcp3561_err_t mcp3561_write_cfg(mcp3561_t *h, uint32_t timeout_ms);
+mcp3561_err_t mcp3561_read_cfg(mcp3561_t *h, mcp3561_cfg_t *cfg, uint32_t timeout_ms);
+mcp3561_err_t mcp3561_read_adc(mcp3561_t *h, int32_t *raw, uint32_t timeout_ms);
 
 #ifdef __cplusplus
 }
