@@ -41,7 +41,7 @@
 
 // SPI (i do not use from it, SPI connection is configured by HAL)
 
-// SPI2 used for DAC and DAC
+// SPI2 used for ADC and DAC
 #define SPI2_SCK_PIN    GPIO_PIN_13
 #define SPI2_MISO_PIN   GPIO_PIN_14
 #define SPI2_MOSI_PIN   GPIO_PIN_15
